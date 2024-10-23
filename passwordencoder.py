@@ -2,18 +2,26 @@ def encode(password):
     pList = list(password)
     for letter in range(len(pList)):
         pList[letter] = str(int(pList[letter]) + 3)
+        if int(pList[letter]) >= 10:
+            pList[letter] = str(int(pList[letter]) - 10)
 
     finalPassword = "".join(pList)
     return finalPassword
 
+#commented this out to make my own
 def decode(password):
     pList = list(password)
     for letter in range(len(pList)):
         pList[letter] = str(int(pList[letter]) - 3)
+        if int(pList[letter]) < 0:
+            pList[letter] = str(int(pList[letter])+10)
+
 
 
     finalPassword = "".join(pList)
     return finalPassword
+
+
 
 def main():
     password = ''
